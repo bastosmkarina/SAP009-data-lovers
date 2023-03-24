@@ -1,0 +1,12 @@
+
+#aboutshow h1 {
+  text-align: center;
+  color: rgb(235, 239, 242);
+  margin-bottom: 20px;
+}
+
+p {
+  color: aliceblue;
+  text-indent: 50px;
+  line-height: 1.5;
+}
