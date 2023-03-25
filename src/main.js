@@ -116,7 +116,7 @@ showEpisodesDivs.forEach(el => {
 
     const modalText = data
       .results
-      .find(character => character.id == cardCharacterId)
+      .find(character => character.id == cardCharacterId)  
       .episode
       .join('<br>')
 

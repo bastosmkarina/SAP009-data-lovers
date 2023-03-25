@@ -5,9 +5,7 @@
   <meta charset="utf-8">
   <title>Rick and Morty Pedia</title>
   <link rel="stylesheet" href="/styles/header.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
-  <link rel="stylesheet" href="/styles/footer.css" />
   <link rel="stylesheet" href="/styles/aboutshow.css" />
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,79 +15,28 @@
 </head>
 
 <body>
+  <div id="page-container">
+    <div id="content-wrap">
   <header id="header">
     <div id="logo">
       <a href="/"> <img src="/images/logo-header.png" alt="descrição"></a>
     </div>
     <div id="h1">Rick and Morty Pedia</div>
     <div id="container-right">
-      <div class="search-box">
-        <input class="search-input" id="search-input" type="text" placeholder="Pesquisar por nome">
-        <a href="#" class="search-btn">
-          <i class="fas fa-search"></i>
-        </a>
-      </div>
+      <a href="/"><button id="first-page">PÁGINA PRINCIPAL</button></a>
       <a href="https://www.hbomax.com/br/pt/series/urn:hbo:series:GXkRjxwjR68PDwwEAABKJ" target="_blank"><button
           id="button-watch-serie">ASSISTA A SÉRIE</button></a>
     </div>
   </header>
   <main id="main">
-    <nav class="menu-container">
-      <div class="menu">
-        <a href="./aboutshow.html" class="menu-item">sobre a série</a>
-        <ul>
-          <li class="menu-item">filtrar por:</li>
-          <li class="menu-sub-item">
-            <select id="filter-by-status">
-              <option disabled selected style="display: none;">ESTADO DE VIDA</option>
-            </select>
-          </li>
-          <li class="menu-sub-item">
-            <select id="filter-by-species">
-              <option disabled selected style="display: none;">ESPÉCIE</option>
-            </select>
-          </li>
-          <li class="menu-sub-item">
-            <select id="filter-by-gender">
-              <option disabled selected style="display: none;">GÊNERO</option>
-            </select>
-          </li>
-          <li class="menu-sub-item">
-            <select id="filter-by-origin">
-              <option disabled selected style="display: none;">ORIGEM</option>
-            </select>
-          </li>
-          <li class="menu-sub-item">
-            <select id="filter-by-location">
-              <option disabled selected style="display: none;">ONDE VIVE</option>
-            </select>
-          </li>
-        </ul>
-        <ul>
-          <li class="menu-item">ordenar por:</li>
-          <li class="menu-sub-item">
-            <select id="order-by-name">
-              <option value="a-z">A-Z</option>
-              <option value="z-a">Z-A</option>
-            </select>
-          </li>
-        </ul>
-        <a href="#" class="menu-item">curiosidades</a>
-        <a href="#" class="menu-item">lista de episódios</a>
-      </div>
-      <a href="#" class="menu-icon">
-        <i class="fas fa-bars fa-lg"></i>
-      </a>
-    </nav>
     <div id="aboutshow">
     <h1>Sobre a série</h1>
-    <p>O show gira em torno das aventuras dos membros da família Smith, que consiste nos pais Jerry e Beth, seus filhos Summer e Morty, e o pai de Beth, chamado Rick Sanchez, que mora com eles como hóspede. De acordo com Justin Roiland, a família mora fora da cidade de Seattle, no estado norte-americano de Washington.[2] No entanto, as aventuras de Rick e Morty ocorrem em um número infinito de realidades, com os personagens viajando para outros planetas e dimensões através de portais usando o veículo voador de Rick.
-
-      Rick é um cientista louco excêntrico e alcoólatra, que evita muitas convenções costumeiras como escola, casamento, amor e família. Ele frequentemente vai em aventuras com seu neto de 14 anos de idade, Morty, um menino de bom coração, mas que também fica facilmente angustiado, cuja bússola moral ingênua mas fundamentada funciona em contraponto ao ego maquiavélico de Rick. A irmã de Morty, Summer, de 17 anos, é uma adolescente mais convencional, que se preocupa em melhorar seu status social entre seus colegas e às vezes acompanha Rick e Morty em suas aventuras. A mãe das crianças, Beth, é uma pessoa geralmente equilibrada e uma força assertiva no lar, embora consciente de seu papel profissional como médica cirurgiã especializada em cavalos. Ela está insatisfeita com seu casamento com Jerry, uma pessoa insensata e de mente simples, que constantemente desaprova a influência de Rick sobre sua família.
-      
-      Diferentes versões dos personagens habitam outras dimensões em todo o multiverso e suas características pessoais podem variar de uma realidade para outra. o Rick original do programa se identifica como "Rick Sanchez da dimensão da Terra C-137", utilizando esse dado como referência ao seu universo original, mas isso não se aplica necessariamente a todos os outros membros da família Smith. Por exemplo, no episódio "Rick Potion #9" da primeira temporada, após transformarem toda a população mundial em monstros, Rick e Morty se mudam para uma dimensão diferente, deixando Summer, Beth e Jerry para trás.</p>
-    </div>
-  <div id="cards"></div>
+    <p>O show gira em torno das aventuras dos membros da família Smith, que consiste nos pais Jerry e Beth, seus filhos Summer e Morty, e o pai de Beth, chamado Rick Sanchez, que mora com eles como hóspede. De acordo com Justin Roiland, a família mora fora da cidade de Seattle, no estado norte-americano de Washington. No entanto, as aventuras de Rick e Morty ocorrem em um número infinito de realidades, com os personagens viajando para outros planetas e dimensões através de portais usando o veículo voador de Rick.</p>
+    <p>Rick é um cientista louco excêntrico e alcoólatra, que evita muitas convenções costumeiras como escola, casamento, amor e família. Ele frequentemente vai em aventuras com seu neto de 14 anos de idade, Morty, um menino de bom coração, mas que também fica facilmente angustiado, cuja bússola moral ingênua mas fundamentada funciona em contraponto ao ego maquiavélico de Rick. A irmã de Morty, Summer, de 17 anos, é uma adolescente mais convencional, que se preocupa em melhorar seu status social entre seus colegas e às vezes acompanha Rick e Morty em suas aventuras. A mãe das crianças, Beth, é uma pessoa geralmente equilibrada e uma força assertiva no lar, embora consciente de seu papel profissional como médica cirurgiã especializada em cavalos. Ela está insatisfeita com seu casamento com Jerry, uma pessoa insensata e de mente simples, que constantemente desaprova a influência de Rick sobre sua família.</p>
+    <p>Diferentes versões dos personagens habitam outras dimensões em todo o multiverso e suas características pessoais podem variar de uma realidade para outra. o Rick original do programa se identifica como "Rick Sanchez da dimensão da Terra C-137", utilizando esse dado como referência ao seu universo original, mas isso não se aplica necessariamente a todos os outros membros da família Smith. Por exemplo, no episódio "Rick Potion #9" da primeira temporada, após transformarem toda a população mundial em monstros, Rick e Morty se mudam para uma dimensão diferente, deixando Summer, Beth e Jerry para trás.</p>
+    <p><a href="https://pt.wikipedia.org/wiki/Rick_and_Morty" target="_blank">Fonte: https://pt.wikipedia.org/wiki/Rick_and_Morty</a></p>
+  </div>
+  <div></div>
 </main>
 <div id="root"></div>
   <footer class="footer">
