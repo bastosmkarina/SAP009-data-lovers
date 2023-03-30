@@ -6,3 +6,15 @@ export function filterCardsByName(inputValue, data) {
   })
   return dataFiltered
 }
+
+export function orderByAZ(character1, character2) {
+  if (character1.name > character2.name) return 1;
+  if (character1.name < character2.name) return -1;
+  return 0;
+}
+
+export function orderByZA(character1, character2) {
+  if (character1.name < character2.name) return 1;
+  if (character1.name > character2.name) return -1;
+  return 0;
+}

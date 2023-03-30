@@ -1,11 +1,21 @@
 import data from './data/rickandmorty/rickandmorty.js';
 import { originOptions as uniqueOrigins } from './nav.js'
+import { filterCardsByName } from './data.js'
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#search-input").addEventListener("keyup", renderCardsFiltered)
+})
+
+function renderCardsFiltered(event) {
+  const inputValue = event.target.value.toLowerCase()
+  renderCards(filterCardsByName(inputValue, data.results))
+}
 
 export function getStatusIcon(character) {
   let statusIcon = "●"
 
   if (character.status === "Alive") {
-    statusIcon = `<span style='color: green'>${statusIcon}</span>` // atributo style  adiciona css a qualquer elemento 
+    statusIcon = `<span style='color: green'>${statusIcon}</span>` // Atributo style  adiciona css a qualquer elemento 
   } else if (character.status === "Dead") {
     statusIcon = `<span style='color: red'>${statusIcon}</span>`
   } else {
@@ -13,73 +23,6 @@ export function getStatusIcon(character) {
   }
 
   return statusIcon
-}
-
-export function translateStatus(character) {
-
-  if (character.status === 'Alive' && character.gender === "Male") { return "Vivo"; }
-  else if (character.status === 'Alive' && character.gender === "Female") { return "Viva"; }
-
-  if (character.status === 'Dead' && character.gender === "Male") { return "Morto"; }
-  else if (character.status === 'Dead' && character.gender === "Female") { return "Morta"; }
-
-  if (character.status === 'Alive' && character.gender === "Unknown") { return "Vivo"; }
-  else if (character.status === 'Dead' && character.gender === "Unknown") { return "Morto"; }
-
-  if (character.status === 'Alive' && character.gender === "Genderless") { return "Vivo"; }
-  else if (character.status === 'Dead' && character.gender === "Genderless") { return "Morto"; }
-
-  else { return "Desconhecido"; }
-}
-
-export function translateSpecies(character) {
-  const current_species = character.species.toLowerCase()
-
-  const speciesTranslation = {
-    'human': "Humana",
-    'alien': "Alienígena",
-    'humanoid': "Humanoide",
-    'unknown': "Desconhecida",
-    'poopybutthole': "Poopybutthole",
-    'mytholog': "Mytholog",
-    'vampire': "Vampiro",
-    'animal': "Animal",
-    'robot': "Robô",
-    'parasite': "Parasita",
-    'cronenberg': "Cronenberg",
-    'disease': "Doença"
-  }
-
-  return speciesTranslation[current_species]
-}
-
-export function translateGender(character) {
-  const current_gender = character.gender.toLowerCase()
-
-  const genderTranslation = {
-    'male': "Masculino",
-    'female': "Feminino",
-    'unknown': "Desconhecido",
-    'genderless': "Indefinido"
-  }
-
-  return genderTranslation[current_gender]
-}
-
-export function translateOrigin(character) {
-  const origin = character.origin.name
-  if (origin.includes('Earth')) return origin.replace('Earth', 'Terra')
-  if (origin === "unknown") return "Desconhecida"
-
-  return origin
-}
-
-export function translateLocation(character) {
-  const location = character.location.name
-  if (location.includes('Earth')) return location.replace('Earth', 'Terra')
-  if (location === "unknown") return "Local desconhecido"
-
-  return location
 }
 
 export function renderCards(arrayWithCharacterData) {
@@ -92,9 +35,9 @@ export function renderCards(arrayWithCharacterData) {
             class="character-image" />
             <div class="character-name">${character.name}</div>
             <div class="character-description">
-            <div>${getStatusIcon(character)} ${translateStatus(character)} - ${translateSpecies(character)} - ${translateGender(character)}</div>
-            <div>Origem: ${translateOrigin(character)}</div>
-            <div>Vive em: ${translateLocation(character)}</div>
+            <div>${getStatusIcon(character)} ${(character)} - ${(character)} - ${(character)}</div>
+            <div>Origem: ${(character)}</div>
+            <div>Vive em: ${(character)}</div>
             <div class="show-episodes" data-character-id="${character.id}"> Episódios em que aparece</div>
             </div>
         </div>
