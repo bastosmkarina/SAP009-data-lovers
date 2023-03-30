@@ -11,7 +11,7 @@ function renderCardsFiltered(event) {
   renderCards(filterCardsByName(inputValue, data.results))
 }
 
-export function getStatusIcon(character) {
+function getStatusIcon(character) {
   let statusIcon = "●"
 
   if (character.status === "Alive") {
@@ -25,9 +25,9 @@ export function getStatusIcon(character) {
   return statusIcon
 }
 
-export function renderCards(arrayWithCharacterData) {
+export function renderCards(characters) {
   document.querySelector("#cards").innerHTML = ""
-  document.querySelector("#cards").innerHTML += arrayWithCharacterData
+  document.querySelector("#cards").innerHTML += characters
     .map(character => {
       return `
             <div class="card">
@@ -35,10 +35,10 @@ export function renderCards(arrayWithCharacterData) {
             class="character-image" />
             <div class="character-name">${character.name}</div>
             <div class="character-description">
-            <div>${getStatusIcon(character)}</div>
-            <div>Origem:${character.origin}</div>
-            <div>Vive em:${character.location}</div>
-            <div class="show-episodes" data-character-id="${character.id}"> Episódios em que aparece</div>
+            <div>${getStatusIcon(character)} ${character.status} - ${character.species} - ${character.gender}</div>
+            <div>Origin: ${character.origin.name}</div>
+            <div>Location: ${character.location.name}</div>
+            <div class="show-episodes" data-character-id="${character.id}"> Character's episodes</div>
             </div>
         </div>
         </div>
@@ -97,7 +97,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 })
-
-
-
 
