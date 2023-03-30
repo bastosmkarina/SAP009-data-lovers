@@ -1,6 +1,6 @@
 import data from './data/rickandmorty/rickandmorty.js';
 import { originOptions as uniqueOrigins } from './nav.js'
-import { filterCardsByName } from './data.js'
+import { filterCardsByName, calculatePercentage } from './data.js'
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#search-input").addEventListener("keyup", renderCardsFiltered)
@@ -15,7 +15,7 @@ export function getStatusIcon(character) {
   let statusIcon = "●"
 
   if (character.status === "Alive") {
-    statusIcon = `<span style='color: green'>${statusIcon}</span>` // Atributo style  adiciona css a qualquer elemento 
+    statusIcon = `<span style='color: green'>${statusIcon}</span>`
   } else if (character.status === "Dead") {
     statusIcon = `<span style='color: red'>${statusIcon}</span>`
   } else {
@@ -35,19 +35,15 @@ export function renderCards(arrayWithCharacterData) {
             class="character-image" />
             <div class="character-name">${character.name}</div>
             <div class="character-description">
-            <div>${getStatusIcon(character)} ${(character)} - ${(character)} - ${(character)}</div>
-            <div>Origem: ${(character)}</div>
-            <div>Vive em: ${(character)}</div>
+            <div>${getStatusIcon(character)}</div>
+            <div>Origem:${character.origin}</div>
+            <div>Vive em:${character.location}</div>
             <div class="show-episodes" data-character-id="${character.id}"> Episódios em que aparece</div>
             </div>
         </div>
         </div>
         `
     }).join('')
-}
-
-export function calculatePercentage(value, total) {
-  return Math.round((value / total) * 100)
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -66,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
   
   `
-
   const modal = document.querySelector("#modal");
   const showEpisodesDivs = document.querySelectorAll(".show-episodes");
 

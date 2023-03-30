@@ -78,12 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
   filterLocationSelect.addEventListener("change", (event) => {
     renderCards(data.results.filter(character => character.location.name === event.target.value))
   })
-  /* 
-  1. pegar elemento de select de ordenacao 
-  2. adiciona um evento de change 
-  3. ordenar data.results usando Array.sort() usando o character.name, veficando se é pra ordenar de a-z ou z-a (usar if else para ordernar "certo" de acordo com o value)
-  4. colocar o data.results.sort(...) dentro de renderCards()
-  */
+  
   const orderByName = document.querySelector("#order-by-name")
 
   orderByName.addEventListener("change", (event) => {
