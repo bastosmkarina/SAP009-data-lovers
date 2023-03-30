@@ -38,7 +38,7 @@ export function renderCards(characters) {
             <div>${getStatusIcon(character)} ${character.status} - ${character.species} - ${character.gender}</div>
             <div>Origin: ${character.origin.name}</div>
             <div>Location: ${character.location.name}</div>
-            <div class="show-episodes" data-character-id="${character.id}"> Character's episodes</div>
+            <div class="show-episodes" data-character-id="${character.id}">Character's episodes</div>
             </div>
         </div>
         </div>
@@ -55,10 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector("#extras").innerHTML = `
   <div>
-    Número total de personagens: ${data.results[data.results.length - 1].id} (${calculatePercentage(charactersAlive, totalCharacters)}% dos personagens estão vivos)
+  The total number of characters is: ${data.results[data.results.length - 1].id} (${calculatePercentage(charactersAlive, totalCharacters)}% of those characters are alive)
   </div>
   <div>
-  Número de lugares de origem: ${uniqueOrigins.length} (${calculatePercentage(charactersWithOriginUnknown, totalCharacters)}% dos personagens tem origem desconhecida)
+  Also the total number of origin places is: ${uniqueOrigins.length} (${calculatePercentage(charactersWithOriginUnknown, totalCharacters)}% of those characters have an unknown origin)
   </div>
   
   `
