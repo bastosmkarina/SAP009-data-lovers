@@ -1,6 +1,6 @@
 import data from './data/rickandmorty/rickandmorty.js';
 import { renderCards } from './main.js'
-
+import { orderByAZ, orderByZA } from './data.js';
 
 function toggleMenu() {
   const menuDisplay = document.querySelector(".menu").style.display
@@ -11,63 +11,6 @@ function toggleMenu() {
     document.querySelector(".menu").style.display = 'none'
     document.querySelector(".menu-icon").innerHTML = "<i class='fas fa-bars fa-lg'></i>"
   }
-}
-
-export function translateStatus(status) {
-  const current_status = status.toLowerCase()
-
-  const statusTranslation = {
-    'alive': "Vivo",
-    'unknown': "Desconhecido",
-    'dead': "Morto"
-  }
-  return statusTranslation[current_status]
-}
-
-export function translateSpecies(species) {
-  const current_species = species.toLowerCase()
-
-  const speciesTranslation = {
-    'human': "Humana",
-    'alien': "Alienígena",
-    'humanoid': "Humanoide",
-    'unknown': "Desconhecida",
-    'poopybutthole': "Poopybutthole",
-    'mytholog': "Mytholog",
-    'vampire': "Vampiro",
-    'animal': "Animal",
-    'robot': "Robô",
-    'parasite': "Parasita",
-    'cronenberg': "Cronenberg",
-    'disease': "Doença"
-  }
-  return speciesTranslation[current_species]
-}
-
-export function translateGender(gender) {
-  const current_gender = gender.toLowerCase()
-
-  const genderTranslation = {
-    'male': "Masculino",
-    'female': "Feminino",
-    'unknown': "Desconhecido",
-    'genderless': "Indefinido"
-  }
-
-  return genderTranslation[current_gender]
-}
-
-export function orderByAZ(character1, character2) {
-  if (character1.name > character2.name) return 1;
-  if (character1.name < character2.name) return -1;
-  return 0;
-}
-
-
-export function orderByZA(character1, character2) {
-  if (character1.name < character2.name) return 1;
-  if (character1.name > character2.name) return -1;
-  return 0;
 }
 
 const allOrigin = new Set()
@@ -82,19 +25,19 @@ document.addEventListener("DOMContentLoaded", () => {
   data.results.forEach(character => allStatus.add(character.status))
   const statusOptions = Array.from(allStatus)
   document.querySelector("#filter-by-status").innerHTML +=
-    statusOptions.map(status => `<option value="${status}">${translateStatus(status)}</option>`).join('')
+    statusOptions.map(status => `<option value="${status}">${(status)}</option>`).join('')
 
   const allSpecies = new Set()
   data.results.forEach(character => allSpecies.add(character.species))
   const speciesOptions = Array.from(allSpecies)
   document.querySelector("#filter-by-species").innerHTML +=
-    speciesOptions.map(species => `<option value="${species}">${translateSpecies(species)}</option>`).join('')
+    speciesOptions.map(species => `<option value="${species}">${(species)}</option>`).join('')
 
   const allGender = new Set()
   data.results.forEach(character => allGender.add(character.gender))
   const genderOptions = Array.from(allGender)
   document.querySelector("#filter-by-gender").innerHTML +=
-    genderOptions.map(gender => `<option value="${gender}">${translateGender(gender)}</option>`).join('')
+    genderOptions.map(gender => `<option value="${gender}">${(gender)}</option>`).join('')
 
 
   document.querySelector("#filter-by-origin").innerHTML +=
@@ -135,13 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
   filterLocationSelect.addEventListener("change", (event) => {
     renderCards(data.results.filter(character => character.location.name === event.target.value))
   })
-  /* 
-  1. pegar elemento de select de ordenacao 
-  2. adiciona um evento de change 
-  3. ordenar data.results usando Array.sort() usando o character.name, veficando se é pra ordenar de a-z ou z-a (usar if else para ordernar "certo" de acordo com o value)
-  4. colocar o data.results.sort(...) dentro de renderCards()
-  */
-
+  
   const orderByName = document.querySelector("#order-by-name")
 
   orderByName.addEventListener("change", (event) => {
