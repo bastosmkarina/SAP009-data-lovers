@@ -21,7 +21,7 @@ describe("filterCardsByName", () => {
   })
 
   test("should return empty array when input value does not match any name", () => {
-    const inputValue = "ricky"
+    const inputValue = "banana"
 
     const dataFiltered = filterCardsByName(inputValue, data)
 

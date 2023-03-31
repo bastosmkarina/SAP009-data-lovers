@@ -22,3 +22,23 @@ export function orderByZA(character1, character2) {
 export function calculatePercentage(value, total) {
   return Math.round((value / total) * 100)
 }
+
+export function filterStatus (data, value) {
+  return data.results.filter(character => character.status === value)
+}
+
+export function filterSpecies (data,value) {
+  return data.results.filter(character => character.species === value)
+}
+
+export function filterGender (data, value) {
+  return data.results.filter(character => character.gender === value)
+}
+
+export function filterOrigin (data, value) {
+  return data.results.filter(character => character.origin.name === value)
+}
+
+export function filterLocation (data, value) {
+  return data.results.filter (character => character.location.name === value)
+}

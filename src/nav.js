@@ -1,6 +1,6 @@
 import data from './data/rickandmorty/rickandmorty.js';
 import { renderCards } from './main.js'
-import { orderByAZ, orderByZA } from './data.js';
+import { filterStatus, filterSpecies, filterGender, filterOrigin, filterLocation, orderByAZ, orderByZA } from './data.js';
 
 function toggleMenu() {
   const menuDisplay = document.querySelector(".menu").style.display
@@ -52,31 +52,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterStatusSelect = document.querySelector("#filter-by-status")
 
   filterStatusSelect.addEventListener("change", (event) => {
-    renderCards(data.results.filter(character => character.status === event.target.value))
+    const status = filterStatus (data, event.target.value)
+    renderCards (status)
   })
 
   const filterSpeciesSelect = document.querySelector("#filter-by-species")
 
   filterSpeciesSelect.addEventListener("change", (event) => {
-    renderCards(data.results.filter(character => character.species === event.target.value))
+    const species = filterSpecies (data, event.target.value)
+    renderCards(species)
   })
 
   const filterGenderSelect = document.querySelector("#filter-by-gender")
 
   filterGenderSelect.addEventListener("change", (event) => {
-    renderCards(data.results.filter(character => character.gender === event.target.value))
+    const gender = filterGender (data, event.target.value)
+    renderCards(gender)
   })
 
   const filterOriginSelect = document.querySelector("#filter-by-origin")
 
   filterOriginSelect.addEventListener("change", (event) => {
-    renderCards(data.results.filter(character => character.origin.name === event.target.value))
+    const origin = filterOrigin (data, event.target.value)
+    renderCards(origin)
   })
 
   const filterLocationSelect = document.querySelector("#filter-by-location")
 
   filterLocationSelect.addEventListener("change", (event) => {
-    renderCards(data.results.filter(character => character.location.name === event.target.value))
+    const location = filterLocation (data, event.target.value)
+    renderCards(location)
   })
   
   const orderByName = document.querySelector("#order-by-name")
