@@ -47,10 +47,11 @@ export function renderCards(characters) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  
   renderCards(data.results)
 
-  const charactersAlive = data.results.filter(character => character.status === "Alive").length
   const totalCharacters = data.results[data.results.length - 1].id
+  const charactersAlive = data.results.filter(character => character.status === "Alive").length
   const charactersWithOriginUnknown = data.results.filter(character => character.origin.name === "unknown").length
 
   document.querySelector("#extras").innerHTML = `
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   The total number of characters is: ${data.results[data.results.length - 1].id} (${calculatePercentage(charactersAlive, totalCharacters)}% of those characters are alive)
   </div>
   <div>
-  Also the total number of origin places is: ${uniqueOrigins.length} (${calculatePercentage(charactersWithOriginUnknown, totalCharacters)}% of those characters have an unknown origin)
+  Also the total number of characters who has an origin place is: ${uniqueOrigins.length} (${calculatePercentage(charactersWithOriginUnknown, totalCharacters)}% of those characters have an unknown origin)
   </div>
   
   `
